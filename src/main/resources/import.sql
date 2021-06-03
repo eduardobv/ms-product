@@ -1,0 +1,8 @@
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Samsung Galaxy S21', 'Best mobile', 'ELECTRONIC', 750, 1000, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('One Plus 7', 'Best mobile', 'ELECTRONIC', 750, 1500, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Google Pixel 2', 'Best mobile', 'ELECTRONIC', 750, 1800, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Motorola 2', 'Best mobile', 'ELECTRONIC', 750, 5000, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('HTC white', 'Best mobile', 'ELECTRONIC', 750, 2000, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Iphone 12 pro Max', 'Best mobile', 'ELECTRONIC', 750, 3000, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Huawei P20', 'Best mobile', 'ELECTRONIC', 750, 4000, LOCALTIMESTAMP() , NOW());
+INSERT INTO PRODUCT (name, description, category, price, minimumstock, created, modified) VALUES ('Xiaomi Mi9', 'Best mobile', 'ELECTRONIC', 750, 5000, LOCALTIMESTAMP() , NOW());

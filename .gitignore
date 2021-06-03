@@ -10,7 +10,7 @@ mvnw.cmd
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-HELP.md
+#HELP.md
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -40,3 +40,4 @@ bin/
 
 # Log file
 *.log
+*.gitignore
