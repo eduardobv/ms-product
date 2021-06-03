@@ -1,0 +1,42 @@
+### Maven ###
+.mvn
+target/*
+**/target/**
+mvnw
+mvnw.cmd 
+*/target/
+*/.mvn/
+*/mvnw*
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+HELP.md
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache 
+
+### Eclipse ###
+.settings
+.metadata
+.classpath
+.project
+bin/
+.sonarlint
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Log file
+*.log

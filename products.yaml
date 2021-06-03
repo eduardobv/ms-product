@@ -1,0 +1,267 @@
+openapi: 3.0.3
+info:
+  title: Product API
+  description: Api Rest Product Managment
+  termsOfService: http://www.example.com/terms/
+  contact:
+    name: API Soft
+    url: http://www.example.com/support/
+    email: support@example.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081/
+    description: Development Security server
+  - url: http://localhost:8081/
+    description: Development server
+tags:
+  - name: products
+    description: Managment of Products
+paths:
+  /products:
+    get:
+      summary: list of all products
+      tags:
+        - products
+      operationId: findAllProducts
+      responses:
+        200:
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        401:
+          description: Not Authorized
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    post:
+      summary: create a new product
+      tags:
+        - products
+      operationId: createProduct
+      requestBody:
+        description: Product object to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        201:
+          description: Successful Operation
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Product'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        401:
+          description: Not Authorized
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+  /products/{product}:
+    get:
+      summary: get product by Id
+      tags:
+        - products
+      operationId: findProductById
+      parameters:
+        - name: product
+          in: path
+          description: id of the product
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful Operation
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Product'
+        401:
+          description: Not Authorized
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    put:
+      summary: update product
+      tags:
+        - products
+      operationId: updateProduct
+      parameters:
+        - name: product
+          in: path
+          description: id of the product to be updated
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Product object to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      responses:
+        200:
+          description: Successful Operation
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Product'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        401:
+          description: Not Authorized
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+    delete:
+      summary: delete product
+      tags:
+        - products
+      operationId: deleteProduct
+      parameters:
+        - name: product
+          in: path
+          description: id of the product to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Successful Operation
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        401:
+          description: Not Authorized
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/ApiErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+components:
+  schemas:
+    Product:
+      required:
+      - name
+      - description
+      - category
+      - price
+      - minimumStock
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the Product
+          example: 123
+        name:
+          type: string
+          description: Name of the Product
+          example: OnePlus 9"
+        description:
+          type: string
+          description: Description of the Product
+          example: ONEPLUS 9 5G Smartphone
+        category:
+          type: string
+          description: Category of the Product
+          example: ELECTRONIC
+          enum:
+          - ELECTRONIC
+          - FOOD
+          - HOME
+          - BOOKS
+          - CLOTHES
+        price:
+          type: number
+          description: Price of the Product
+          example: 699,0  
+        minimumStock:
+          type: integer
+          description: Minimum stock of the Product
+          example: 123
+        created:
+          type: string
+          description: Date of the product creation
+          format: date-time
+        modified:
+          type: string
+          description: Date of the product creation
+          format: date-time
+      description: Product Object    
+    ApiErrorResponse:
+      required:
+      - code
+      type: object
+      properties:
+        code:
+          type: integer
+          description: error code
+          format: int32
+        error:
+          type: string
+          description: type of error
+        description:
+          type: string
+          description: description of the error
+      description: ApiErrorResponse Object
