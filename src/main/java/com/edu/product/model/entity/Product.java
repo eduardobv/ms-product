@@ -1,5 +1,6 @@
 package com.edu.product.model.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -20,11 +21,14 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Product")
-public class Product {
-	
+public class Product implements Serializable{
+ 
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	private String description; 
 	@Enumerated(EnumType.STRING)

@@ -21,3 +21,4 @@ LINKS
 - https://refactorizando.com/mapstruct-spring-boot/
 - https://www.baeldung.com/mapstruct
 - http://www.h2database.com/html/functions.html#current_date
+- https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html

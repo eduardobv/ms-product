@@ -55,7 +55,18 @@
 	        <artifactId>mapstruct</artifactId>
 	        <version>${org.mapstruct.version}</version>
 	    </dependency>
-		
+	    <!-- Open api 3 -->
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+		    <artifactId>springdoc-openapi-ui</artifactId>
+		    <version>1.5.6</version>
+		</dependency>	 
+		<!-- Bean Validator -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.1.6.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
