@@ -38,12 +38,11 @@ public class ErrorController {
 		ApiErrorResponseDTO apiErrorResponseDTO = new ApiErrorResponseDTO();
 		apiErrorResponseDTO.setCode(HttpStatus.BAD_REQUEST.value());
 		apiErrorResponseDTO.setType("MessageNotReadable");
+		apiErrorResponseDTO.setDescription(exception.getMessage());
 		if (exceptionClass instanceof InvalidFormatException) {  
 			apiErrorResponseDTO.setDescription("Error format JSON, values mismatch");
 		}else if (exceptionClass instanceof JsonParseException) {
 			apiErrorResponseDTO.setDescription("Error parsing JSON, malformed JSON");
-		}else {
-			apiErrorResponseDTO.setDescription(exception.getMessage());
 		} 
 		return apiErrorResponseDTO;
 	}
@@ -77,12 +76,11 @@ public class ErrorController {
 		Throwable exceptionClass = exception.getMostSpecificCause(); 
 		ApiErrorResponseDTO apiErrorResponseDTO = new ApiErrorResponseDTO();
 		apiErrorResponseDTO.setCode(HttpStatus.BAD_REQUEST.value());
-		apiErrorResponseDTO.setType("Bad Request"); 
+		apiErrorResponseDTO.setType("Bad Request");
+		apiErrorResponseDTO.setDescription(exception.getMessage());
 		if (exceptionClass instanceof NumberFormatException) {
 			apiErrorResponseDTO.setDescription("Error: Product id format is not correct");
-		}else {
-			apiErrorResponseDTO.setDescription(exception.getMessage());
-		} 
+		}
 		return apiErrorResponseDTO;
 	} 
 	 

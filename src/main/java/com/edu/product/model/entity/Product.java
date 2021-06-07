@@ -16,9 +16,11 @@ import javax.persistence.Table;
 import com.edu.product.model.ProductCategory;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "Product")
 public class Product implements Serializable{

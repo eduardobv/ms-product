@@ -56,4 +56,8 @@ public class ProductService {
 			return Optional.empty();
 		}
 	}
+	
+	public void deleteProduct(Long id) {
+		productRepository.deleteById(id);
+	}
 }

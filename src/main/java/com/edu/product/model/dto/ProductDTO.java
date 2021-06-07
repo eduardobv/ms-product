@@ -9,10 +9,12 @@ import javax.validation.constraints.NotNull;
 import com.edu.product.model.ProductCategory;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 
+@Builder
 @Schema(name = "Product", description = "Product Object")
-@Data
+@Getter
 public class ProductDTO  {
 	
 	@Schema(description = "Unique identifier of the Product", example = "123", format = "int64")

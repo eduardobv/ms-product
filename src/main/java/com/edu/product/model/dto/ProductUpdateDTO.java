@@ -5,12 +5,18 @@ import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 
 import com.edu.product.model.ProductCategory;
- 
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
- 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Builder
 @Schema(name = "ProductUpdate", description = "Product Update Object")
-@Data
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductUpdateDTO {
 
 	@Schema(required = true, description = "Category of the Product", example = "ELECTRONIC")
